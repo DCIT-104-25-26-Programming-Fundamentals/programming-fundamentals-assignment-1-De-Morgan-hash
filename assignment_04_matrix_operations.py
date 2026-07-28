@@ -60,3 +60,8 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+this_matrix = [[1, 2], [3, 4]]
+
+for i in range(2):
+    for j in range(2):
+        print(this_matrix[i][j])

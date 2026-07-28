@@ -45,3 +45,26 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def get_grade(score):
+    score = int(score)
+
+    if (score > 100): 
+        print("\nError: Score must be between 0 and 100.\n")
+        return False
+        
+    if (score >= 80):
+        print("\nGrade: A\n")
+    elif (score >= 70):
+        print("\nGrade: B\n")
+    elif (score >= 60):
+        print("\nGrade: C\n")
+    elif (score >= 50):
+        print("\nGrade: D\n")
+    else:
+        print("\nGrade: F\n")
+
+
+
+student_score = float(input("\nEnter student score (0 - 100): "))
+
+get_grade(student_score)

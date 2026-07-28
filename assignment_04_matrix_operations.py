@@ -61,15 +61,24 @@
 # =============================================================================
 
 def Gen_matrix():
+
+    print("\n")
+
     this_matrix = []
     row_size = int(input("Enter row: "))
     column_size = int(input("Enter column: "))
 
-    for i in range(row_size):
-        this_matrix_row = list(map(int, (input(f"Enter row {i}: " ).split())))
+    print("\n")
 
-        if len(this_matrix_row) == column_size:
-            this_matrix.append(this_matrix_row)
+    for i in range(row_size):
+        while True:
+            this_matrix_row = list(map(int, (input(f"Enter row {i}: " ).split())))
+
+            if len(this_matrix_row) == column_size:
+                this_matrix.append(this_matrix_row)
+                break
+            else:
+                print(f"Error: enter exactly {column_size} numbers. Try again\n")
 
     return this_matrix
 
@@ -106,6 +115,28 @@ def Add_matrix(m1, m2):
 
     return m_sum
 
+def Product_matrix(m1, m2):
+    if len(m1[0]) != len(m2[0]):
+        print("Error: Incompatible matrices\n")
+        return None
+
+    row1 = len(m1)
+    col1 = len(m1[0])
+    col2 = len(m2[0])
+
+    mult_matrix = []
+    for r in range(row1):
+        new_row = [0] * col2
+        mult_matrix.append(new_row)
+
+    for i in range(row1):
+        for j in range(col2):
+            for k in range(col1):
+                mult_matrix[i][j] += m1[i][k] + m2[k][j]
+
+    return mult_matrix
+
+
 
 usr_matrix = Gen_matrix()
 
@@ -127,5 +158,18 @@ matrix_2 = Gen_matrix()
 
 sum_matrix = Add_matrix(matrix_1, matrix_2)
 
+
+print("\nsum of the matrices entered are: \n")
 for row in sum_matrix:
     print(*row, sep=" ")
+
+
+matrix_3 = Gen_matrix()
+matrix_4 = Gen_matrix()
+
+mult_res_matrix = Product_matrix(matrix_3, matrix_4)
+
+print("\nproduct of the matrices entered are: \n")
+for row in mult_res_matrix:
+    print(*row, sep=" ")
+

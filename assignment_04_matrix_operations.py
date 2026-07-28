@@ -63,10 +63,13 @@
 def Gen_matrix():
     this_matrix = []
     row_size = int(input("Enter row: "))
+    column_size = int(input("Enter column: "))
 
     for i in range(row_size):
         this_matrix_row = list(map(int, (input(f"Enter row {i}: " ).split())))
-        this_matrix.append(this_matrix_row)
+
+        if len(this_matrix_row) == column_size:
+            this_matrix.append(this_matrix_row)
 
     return this_matrix
 
@@ -85,16 +88,44 @@ def Trn_matrix(a_matrix):
 
     return trn_matrix
 
-print("\n")
+def Add_matrix(m1, m2):
+    m_sum = []
+
+    if len(m1) != len(m2) or len(m1[0]) != len(m2[0]):
+        print("Error: Matrices provided cannot be added.\n")
+        return None
+
+    row = len(m1)
+    col = len(m1[0])
+
+    for r in range(row):
+        new_row = []
+        for c in range(col):
+            new_row.append(m1[r][c] + m2[r][c])
+        m_sum.append(new_row)
+
+    return m_sum
+
 
 usr_matrix = Gen_matrix()
 
+print("\nThe actual matrix.\n")
 for row in usr_matrix:
     print(*row, sep=" ")
 
-print("\n")
 
+print("\nThe transposed matrix.\n")
 utrn_matrix = Trn_matrix(usr_matrix)
 
 for row in utrn_matrix:
+    print(*row, sep=" ")
+
+
+print("\nMatrix addition.\n")
+matrix_1 = Gen_matrix()
+matrix_2 = Gen_matrix()
+
+sum_matrix = Add_matrix(matrix_1, matrix_2)
+
+for row in sum_matrix:
     print(*row, sep=" ")

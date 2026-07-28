@@ -35,3 +35,21 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def Prime_checker(num):
+    if num <= 1:
+        return False
+
+    halfWay = num // 2
+
+    for i in range(2, halfWay + 1):
+        if num % i == 0:
+            return False
+
+    return True
+
+input_from_user = int(input("\nEnter a number to check: "))
+
+if Prime_checker(input_from_user):
+    print(f"\n{input_from_user} is a prime number.\n")
+else:
+    print(f"\n{input_from_user} is NOT a prime number.\n")

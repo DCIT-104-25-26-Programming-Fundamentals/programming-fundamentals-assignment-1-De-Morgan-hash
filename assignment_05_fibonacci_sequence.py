@@ -49,3 +49,48 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def print_fibonacci():
+    try:
+        n = int(input("Enter number of terms to print: "))
+    except ValueError:
+        print("Error: Please enter a valid integer\n")
+        return 
+
+    if n <= 0:
+        print("Error: N must be a positive integer.\n")
+        return 
+
+    fib_sequence = []
+    a, b = 0, 1
+
+    for _ in range(n):
+        fib_sequence.append(a)
+        a, b = b, a + b
+
+    print("Fibonacci sequence: ", *fib_sequence, sep=" ")
+
+
+def check_fibonacci():
+    try:
+        num = int(input("Enter a number to check: "))
+    except ValueError:
+        print("Error: Please enter a valid integer.\n")
+        return 
+
+    if num < 0:
+        print(f"{num} is not a Fibonacci number.\n")
+        return 
+
+    a, b = 0, 1
+    while a < num:
+        a, b = b, a + b
+
+    if a == num:
+        print(f"{num} is a Fibonacci number.\n")
+    else:
+        print(f"{num} is not a Fibonacci number.\n")
+
+
+print_fibonacci()
+print()
+check_fibonacci()

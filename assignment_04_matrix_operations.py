@@ -60,8 +60,41 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
-this_matrix = [[1, 2], [3, 4]]
+def Gen_matrix():
+    this_matrix = []
+    row_size = int(input("Enter row: "))
 
-for i in range(2):
-    for j in range(2):
-        print(this_matrix[i][j])
+    for i in range(row_size):
+        this_matrix_row = list(map(int, (input(f"Enter row {i}: " ).split())))
+        this_matrix.append(this_matrix_row)
+
+    return this_matrix
+
+
+def Trn_matrix(a_matrix):
+    trn_matrix = []
+
+    row = len(a_matrix)
+    col = len(a_matrix[0])
+
+    for c in range(col):
+        new_row = []
+        for r in range(row):
+            new_row.append(a_matrix[r][c])
+        trn_matrix.append(new_row)
+
+    return trn_matrix
+
+print("\n")
+
+usr_matrix = Gen_matrix()
+
+for row in usr_matrix:
+    print(*row, sep=" ")
+
+print("\n")
+
+utrn_matrix = Trn_matrix(usr_matrix)
+
+for row in utrn_matrix:
+    print(*row, sep=" ")

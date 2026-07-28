@@ -39,3 +39,70 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def init_list():
+    stop = int(input("\nEnter number of digits to enter: "))
+
+    usr_list = []
+    for i in range(0, stop):
+        u_int = float(input("\nEnter number " + f"{i} : "))
+        usr_list.append(u_int)
+
+    return usr_list
+
+
+
+
+def Sum(this_list):
+    sum = 0
+    end_pt = len(this_list)
+    for itr in range(0, end_pt):
+        sum += this_list[itr]
+
+    return int(sum)
+
+
+
+def Average(this_list):
+    a_sum = 0
+    a_ptr = len(this_list)
+    for itr in range(0, a_ptr):
+        a_sum += this_list[itr]
+
+    return float((a_sum / a_ptr))
+
+
+
+def Maximum(this_list):
+    this_max = this_list[0]
+
+    for itr in range(0, len(this_list)):
+        if this_list[itr] > this_max:
+            this_max = this_list[itr]
+
+    return float(this_max)
+
+
+
+def Minimum(this_list):
+    this_min = this_list[0]
+
+    for itr in range(0, len(this_list)):
+        if this_list[itr] < this_min:
+            this_min = this_list[itr]
+
+    return float(this_min)
+
+
+
+
+res_list = init_list()
+my_sum = Sum(res_list)
+my_average = Average(res_list)
+my_max = Maximum(res_list)
+my_min = Minimum(res_list)
+
+print("\nResults: ")
+print("\nSum: " + f"{my_sum}")
+print("\nAverage: " + f"{my_average}")
+print("\nMaximum: " + f"{my_max}")
+print("\nMinimum: " + f"{my_min}")

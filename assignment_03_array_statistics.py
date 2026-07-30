@@ -107,4 +107,3 @@ print("\nAverage: " + f"{my_average}")
 print("\nMaximum: " + f"{my_max}")
 print("\nMinimum: " + f"{my_min}")
 
-print("\n")
